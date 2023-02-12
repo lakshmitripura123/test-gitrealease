@@ -1,8 +1,7 @@
 on:
   push:
-    tags:
-      - '*'
-
+    branches:
+      - main
 name: Release to terraform public registry
 jobs:
   Release:
