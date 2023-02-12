@@ -11,9 +11,9 @@ jobs:
     - uses: actions/checkout@main
       with:
         fetch-depth: '0'
-
     - name: Bump version and push tag
-      env:
-        GITHUB_TOKEN: ${{ secrets.test-token }}
-        WITH_V: false
-      uses: anothrNick/github-tag-action@1.55.0 # Don't use @master unless you're happy to test the latest version
+            if: ${{ github.event_name == 'push' && runner.os == 'Linux' && matrix.java == '11' }}
+            uses: anothrNick/github-tag-action@1.26.0
+            env:
+             GITHUB_TOKEN: ${{ secrets.test-token }}
+             WITH_V: true
