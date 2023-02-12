@@ -1,12 +1,19 @@
+# example 1: on push to master
+name: Bump version
 on:
   push:
     branches:
       - main
-name: Release to terraform public registry
 jobs:
-  Release:
-    name: Release
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: ncipollo/release-action@v1
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+
+    - name: Bump version and push tag
+      uses: anothrNick/github-tag-action@1.55.0 # Don't use @master unless you're happy to test the latest version
+      env:
+        GITHUB_TOKEN: ${{ secrets.test-token }}
+        WITH_V: true
