@@ -16,4 +16,4 @@ jobs:
       uses: anothrNick/github-tag-action@1.26.0
       env:
        GITHUB_TOKEN: ${{ secrets.test-token }}
-       WITH_V: true
+       WITH_V: false
