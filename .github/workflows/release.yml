@@ -12,10 +12,8 @@ jobs:
       with:
         fetch-depth: '0'
     - name: git clone
-      run: | 
-          git clone --depth=1 https://github.com/actions/runner-images
-          ls -la runner-images    
- 
+      run: ls $GITHUB_WORKSPACE
+     
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.26.0
       env:
