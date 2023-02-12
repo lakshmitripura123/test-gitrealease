@@ -1,14 +1,13 @@
-# .github/workflows/release-please.yml
-name: release-please
 on:
   push:
-    branches:
-      - main
+    tags:
+      - '*'
+
+name: Release to terraform public registry
 jobs:
-  release-please:
+  Release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - uses: google-github-actions/release-please-action@v3
-        with:
-          release-type: terraform-module # Multiple release types are supported
-          default-branch: main
+      - uses: actions/checkout@v2
+      - uses: ncipollo/release-action@v1
