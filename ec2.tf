@@ -55,3 +55,11 @@ resource "aws_instance" "app_server4" {
     Name = "ExampleAppServerInstance"
   }
 }
+resource "aws_instance" "app_server5" {
+  ami           = "ami-830c94e3"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
+}
