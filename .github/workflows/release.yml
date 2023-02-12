@@ -12,7 +12,8 @@ jobs:
       with:
         fetch-depth: '0'
     - name: git clone
-      run: ls $GITHUB_WORKSPACE
+      run: |
+       git config --global --add safe.directory /github/workspace
      
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.26.0
